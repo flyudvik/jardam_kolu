@@ -7,4 +7,4 @@ set -o xtrace
 
 
 rm -f './celerybeat.pid'
-celery -A jardam_kolu.taskapp beat -l INFO
+celery -A app.taskapp beat -l INFO

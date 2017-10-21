@@ -22,8 +22,8 @@ if __name__ == '__main__':
         raise
 
     # This allows easy placement of apps within the interior
-    # jardam_kolu directory.
+    # app directory.
     current_path = os.path.dirname(os.path.abspath(__file__))
-    sys.path.append(os.path.join(current_path, 'jardam_kolu'))
+    sys.path.append(os.path.join(current_path, 'app'))
 
     execute_from_command_line(sys.argv)

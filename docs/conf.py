@@ -183,7 +183,7 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
     ('index',
-     'jardam_kolu.tex',
+     'app.tex',
      'Jardam Kolu Documentation',
      """Malik Sulaimanov""", 'manual'),
 ]
@@ -214,7 +214,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'jardam_kolu', 'Jardam Kolu Documentation',
+    ('index', 'app', 'Jardam Kolu Documentation',
      ["""Malik Sulaimanov"""], 1)
 ]
 
@@ -228,7 +228,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'jardam_kolu', 'Jardam Kolu Documentation',
+    ('index', 'app', 'Jardam Kolu Documentation',
      """Malik Sulaimanov""", 'Jardam Kolu',
      """Application that will help women that have been violenced""", 'Miscellaneous'),
 ]

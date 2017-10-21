@@ -6,4 +6,4 @@ set -o nounset
 set -o xtrace
 
 
-celery -A jardam_kolu.taskapp worker -l INFO
+celery -A app.taskapp worker -l INFO

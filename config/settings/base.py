@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 import environ
 
-ROOT_DIR = environ.Path(__file__) - 3  # (jardam_kolu/config/settings/base.py - 3 = jardam_kolu/)
-APPS_DIR = ROOT_DIR.path('jardam_kolu')
+ROOT_DIR = environ.Path(__file__) - 3  # (app/config/settings/base.py - 3 = app/)
+APPS_DIR = ROOT_DIR.path('app')
 
 # Load operating system environment variables and then prepare to use them
 env = environ.Env()
@@ -49,13 +49,15 @@ THIRD_PARTY_APPS = [
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'rest_framework'
 ]
 
 # Apps specific for this project go here.
 LOCAL_APPS = [
     # custom users app
-    'jardam_kolu.users.apps.UsersConfig',
+    'app.users',
     # Your stuff: custom apps go here
+    'app.quiz'
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -76,7 +78,7 @@ MIDDLEWARE = [
 # MIGRATIONS CONFIGURATION
 # ------------------------------------------------------------------------------
 MIGRATION_MODULES = {
-    'sites': 'jardam_kolu.contrib.sites.migrations'
+    'sites': 'app.contrib.sites.migrations'
 }
 
 # DEBUG
@@ -100,6 +102,8 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = [
     ("""Malik Sulaimanov""", 'amywoodehy@gmail.com'),
+    ("""Zhypara Maraeva""", ''),
+    ("""Daniel Manasov""", ''),
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
@@ -255,8 +259,8 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
-ACCOUNT_ADAPTER = 'jardam_kolu.users.adapters.AccountAdapter'
-SOCIALACCOUNT_ADAPTER = 'jardam_kolu.users.adapters.SocialAccountAdapter'
+ACCOUNT_ADAPTER = 'app.users.adapters.AccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'app.users.adapters.SocialAccountAdapter'
 
 # Custom user app defaults
 # Select the correct user model
@@ -268,7 +272,7 @@ LOGIN_URL = 'account_login'
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 
 ########## CELERY
-INSTALLED_APPS += ['jardam_kolu.taskapp.celery.CeleryConfig']
+INSTALLED_APPS += ['app.taskapp.celery.CeleryConfig']
 CELERY_BROKER_URL = env('CELERY_BROKER_URL', default='django://')
 if CELERY_BROKER_URL == 'django://':
     CELERY_RESULT_BACKEND = 'redis://'
